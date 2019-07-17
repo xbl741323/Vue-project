@@ -11,10 +11,11 @@ Vue.filter('dateFormat', function (dateStr, pattern = 'YYYY-MM-DD HH:MM:SS') {
 Vue.use(VueResource)
 Vue.http.options.root = 'http://www.liulongbin.top:3005';//设置请求的根路径
 import app from './App.vue'
-import { Header, Swipe, SwipeItem } from 'mint-ui';
+import { Header, Swipe, SwipeItem, Button } from 'mint-ui';
 Vue.component(Header.name, Header)
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
+Vue.component(Button.name, Button)
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 import router from './router.js'//导入自定义路由模块

@@ -10,6 +10,7 @@ Vue.filter('dateFormat', function (dateStr, pattern = 'YYYY-MM-DD HH:MM:SS') {
 })
 Vue.use(VueResource)
 Vue.http.options.root = 'http://www.liulongbin.top:3005';//设置请求的根路径
+Vue.http.options.emulateJSON = true;//全局设置 post 时候表单数据格式组织形式application/x-www-form-urlencoded
 import app from './App.vue'
 import { Header, Swipe, SwipeItem, Button } from 'mint-ui';
 Vue.component(Header.name, Header)

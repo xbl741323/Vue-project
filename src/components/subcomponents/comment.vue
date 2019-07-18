@@ -11,12 +11,12 @@
           class="cmt-tittle"
         >第{{i+1}}楼&nbsp;&nbsp;用户：{{item.user_name}}&nbsp;&nbsp;发表时间{{item.add_time | dateFormat}}</div>
         <div class="cmt-body">
-           很棒！点赞 {{item.content === 'undefined' ? '此用户暂无评论':item.content}}
+            {{item.content === '' ? '此用户暂无评论':item.content}}
             </div>
       </div>
     </div>
 
-    <mt-button type="danger" size="large" plain>加载更多</mt-button>
+    <mt-button type="danger" size="large" plain @click="getMore">加载更多</mt-button>
   </div>
 </template>
 
@@ -33,16 +33,22 @@ export default {
     this.getComments();
   },
   methods: {
-    getComments() {
+    getComments() {//获取评论
       this.$http
         .get("api/getcomments/" + this.id + "?pageindex=" + this.pageIndex)
         .then(result => {
-          if (result.body.status === 1) {
-            this.comments = result.body.message;
+          if (result.body.status === 0) {
+            // this.comments = result.body.message;
+            //每当获取新评论的时候，不要把老数据清空覆盖，而是应该以老数据拼接新数据
+            this.comments = this.comments.concat(result.body.message)
           } else {
             Toast("获取评论失败！");
           }
         });
+    },
+    getMore(){//加载更多
+      this.pageIndex++
+      this.getComments()
     }
   },
   props: ["id"]

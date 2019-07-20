@@ -112,6 +112,16 @@ export default {
     addToShopCar() {
       //添加到购物车
       this.ballFlag = !this.ballFlag;
+      //{id: 商品的id, count: 要购买的数量, price: 商品的单价, selected: true }
+      // 拼接出一个，要保存到 store 中 cart 数组里的商品信息对象
+      var good = {
+        id: this.id,
+        count: this.selectedCount,
+        price: this.goodsinfo.sell_price,
+        selected: true
+      };
+      //调用 store 中的 mutations 中的 addToCart 方法 来将商品加入购物车
+      this.$store.commit("addToCart", good);
     },
     beforeEnter(el) {
       el.style.transform = "translate(0,0)";
@@ -148,7 +158,7 @@ export default {
     getSelectedCount(count) {
       // 当子组件选中的数量传递给父组件的时候，把选中的值保存到 data 上
       this.selectedCount = count;
-      console.log('父组件拿到的数据'+this.selectedCount)
+      console.log("父组件拿到的数据" + this.selectedCount);
     }
   },
   components: {

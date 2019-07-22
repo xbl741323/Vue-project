@@ -2,10 +2,10 @@
 
 # 通过本次实战练习，希望自己可以收获一些东西
 
-##【主流开源协议之间有何异同？】
+## 【主流开源协议之间有何异同？】
 (https://blog.csdn.net/xiaodaima2016/article/details/83645854)
 
-##制作首页App组件
+## 制作首页App组件
 1. 完成 Header 区域，使用的是 Minit-UI 中的Header组件
 2. 制作底部的 Tabber 区域，使用的是 Mui 中的 Tabber.html 中的代码
  + 在制作购物车的小图标时，操作会相对多一些：
